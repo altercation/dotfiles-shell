@@ -1,0 +1,6 @@
+# .shell/login
+# Shell independent; executed on login interactive shells
+#
+# Ethan Schoonover <es@ethanschoonover.com>
+
+$(command -v figlet || command -v banner || command -v echo) $HOSTNAME

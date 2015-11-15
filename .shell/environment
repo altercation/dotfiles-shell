@@ -1,0 +1,72 @@
+# .shell/environment
+#
+# Environment variables; non shell specific
+
+# This file will be sourced from other shell specific init files in,
+# for example, .zshenv and .bashrc
+#
+# Ethan Schoonover <es@ethanschoonover.com>
+
+# SHELL GENERAL
+# ----------------------------------------------------------------------
+
+#notify-send -u low "executing .shell/environment"
+echo "executing .shell/environment"
+
+# if we're a normal user, use local bin if present
+if [ $UID -ge 1000 ] && [ -d "$HOME/bin" ]
+then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+# if we switch to a POSIX shell, make it source from .profile
+export ENV="$HOME/.profile"
+
+# EDITOR
+# ----------------------------------------------------------------------
+
+# if I've gone through the trouble of pulling in these dotfiles, I've
+# certainly gone through the trouble of installing vim
+export EDITOR=vim
+export VISUAL=vim
+
+# PAGER
+# ----------------------------------------------------------------------
+
+#   -I : ignore case in all searches
+#   -K : exit using standard interrupt (Ctrl-c)
+#   -Q : quieter operation (no audible bell on scroll past end, for example)
+export PAGER=less
+export LESS="-IKQ"
+
+# BROWSER
+# ----------------------------------------------------------------------
+
+# (this loads my per-workspace browser wrapper)
+export BROWSER="$HOME/bin/browser"
+
+# WINE
+# ----------------------------------------------------------------------
+
+export WINEARCH=win32
+
+# HOUSEKEEPING
+# ----------------------------------------------------------------------
+
+# if we want to track that we've sourced this file already
+export SOURCED_SHELL_ENV=TRUE
+
+# UTILITY FUNCTIONS
+# ----------------------------------------------------------------------
+# check for readable file and source it if present
+source_if_present () { if [ -r "$1" ] ; then . "$1" ; fi ; }
+shell_is () {
+    if [ -n "$ZSH_VERSION" ];    then DETECTED_SHELL=zsh
+    elif [ -n "$BASH_VERSION" ]; then DETECTED_SHELL=bash
+    else DETECTED_SHELL=sh
+    fi
+    if [ "$DETECTED_SHELL" = "$1" ]
+    then return 0
+    else return 1
+    fi
+}

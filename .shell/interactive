@@ -1,0 +1,23 @@
+# .shell/interactive
+#
+# Non shell-specific init file
+# Run on interactive shells
+#
+# Ethan Schoonover <es@ethanschoonover.com>
+
+# notify-send -u low "executing .shell/interactive"
+echo "executing .shell/interactive"
+
+ls="ls --human-readable --color=auto"
+alias ls="$ls"
+alias ll="$ls -l"
+alias la="$ls -la"
+
+# Shell specific
+# ----------------------------------------------------------------------
+if shell_is zsh; then
+    source_if_present "$HOME/.fsf.zsh"
+elif shell_is bash; then
+    source_if_present "$HOME/.fsf.bash"
+    PS1='[\u@\h \W]\$ '
+fi
