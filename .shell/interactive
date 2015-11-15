@@ -5,8 +5,8 @@
 #
 # Ethan Schoonover <es@ethanschoonover.com>
 
-# notify-send -u low "executing .shell/interactive"
-echo "executing .shell/interactive"
+# Aliases
+# ----------------------------------------------------------------------
 
 ls="ls --human-readable --color=auto"
 alias ls="$ls"
@@ -15,6 +15,7 @@ alias la="$ls -la"
 
 # Shell specific
 # ----------------------------------------------------------------------
+
 if shell_is zsh; then
     source_if_present "$HOME/.fsf.zsh"
 elif shell_is bash; then

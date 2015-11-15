@@ -10,9 +10,6 @@
 # SHELL GENERAL
 # ----------------------------------------------------------------------
 
-#notify-send -u low "executing .shell/environment"
-echo "executing .shell/environment"
-
 # if we're a normal user, use local bin if present
 if [ $UID -ge 1000 ] && [ -d "$HOME/bin" ]
 then
