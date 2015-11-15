@@ -6,11 +6,7 @@
 !/.gitignore.d/shell
 !/.profile
 !/.shell
-!/.shell/environment
-!/.shell/interactive
-!/.shell/login
-!/.shell/logout
-!/.shell/README.md
+!/.shell/*
 !/.zlogin
 !/.zlogout
 !/.zshenv
