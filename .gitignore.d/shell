@@ -1,0 +1,17 @@
+*
+!/.bash_logout
+!/.bash_profile
+!/.bashrc
+!/.gitignore.d
+!/.gitignore.d/shell
+!/.profile
+!/.shell
+!/.shell/environment
+!/.shell/interactive
+!/.shell/login
+!/.shell/logout
+!/.shell/README.md
+!/.zlogin
+!/.zlogout
+!/.zshenv
+!/.zshrc
