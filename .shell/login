@@ -4,3 +4,5 @@
 # Ethan Schoonover <es@ethanschoonover.com>
 
 $(command -v figlet || command -v banner || command -v echo) $(hostname) | $(command -v lolcat || command -v cat)
+
+$HOME/.shell/environment

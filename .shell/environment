@@ -13,7 +13,15 @@
 # if we're a normal user, use local bin if present
 if [ $UID -ge 1000 ] && [ -d "$HOME/bin" ]
 then
-    export PATH="$HOME/bin:$PATH"
+    if [ -n "$ZSH_VERSION" ]
+    then
+        typeset -U path
+	path=("$HOME/bin" $path[@])
+    else
+        export PATH="$HOME/bin:$PATH"
+    fi
+else
+    echo "else!" > ~/tmp/log
 fi
 
 # if we switch to a POSIX shell, make it source from .profile

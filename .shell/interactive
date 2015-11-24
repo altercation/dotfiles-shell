@@ -22,3 +22,8 @@ elif shell_is bash; then
     source_if_present "$HOME/.fsf.bash"
     PS1='[\u@\h \W]\$ '
 fi
+
+# tmux
+# ----------------------------------------------------------------------
+[ -z "$TMUX" ] && export TERM=xterm-256color
+
